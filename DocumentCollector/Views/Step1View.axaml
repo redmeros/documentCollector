@@ -11,32 +11,38 @@
         
     <Grid RowDefinitions="*, Auto">
         <Border BorderBrush="Gray" Classes="border spaced">
-            <ScrollViewer>
-                <Grid RowDefinitions="Auto, Auto, *">
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Classes="h1" Text="Wybierz listy rysunków"/>
-                        <TextBlock Classes="muted" Text="Standardowe listy rysunków DCS w formacie xlsx, przykładowe listy np dla projektu wykonawczego mszczonowa"></TextBlock>
-                    </StackPanel>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                    <StackPanel.Styles>
-                        <Style Selector=":is(Button)">
-                            <Setter Property="Margin" Value="3 3 0 3"></Setter>
-                        </Style>
-                    </StackPanel.Styles>
-                    <Button Command="{Binding AddFileToListPath}">Dodaj listę</Button>
-                    <Button Command="{Binding AddFolderToListPath}">Dodaj katalog list</Button>
-                    <Button Command="{Binding DeletePathCmd}">Usuń zaznaczone</Button>
+            <Grid RowDefinitions="*, auto">
+                <DataGrid 
+                    VerticalAlignment="Stretch" 
+                    HorizontalAlignment="Stretch" 
+                    ItemsSource="{Binding Entries}"
+                    CanUserReorderColumns="True"
+                    CanUserSortColumns="True"
+                    CanUserResizeColumns="True"
+                    GridLinesVisibility="All"
+                    >
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn Header="Zaznacz" Binding="{Binding IsChecked}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Numer dokumentu" Binding="{Binding Object.DocNo}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Data wydania" Binding="{Binding Object.IssueDate, StringFormat=yyyy-MM-dd}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Tytuł" Binding="{Binding Object.Title}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Margin="10" Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Command="{Binding SelectAllCmd}">Wszystko</Button>
+                    <Button Command="{Binding DeselectAllCmd}">Nic</Button>
+                    <Button Command="{Binding InvertSelectionCmd}">Odwróć</Button>
                 </StackPanel>
-                <ListBox
-                    SelectionMode="Multiple"
-                    SelectedItems="{Binding SelectedPaths}"
-                    Grid.Row="2" ItemsSource="{Binding ListPaths}"></ListBox>
-                </Grid>
-            </ScrollViewer>
+            </Grid>
         </Border>
         
-        <Grid Grid.Row="1" Classes="spaced">
-            <Button Command="{Binding NextCmd}" HorizontalAlignment="Right">Następny...</Button>
+        <Grid Grid.Row="1" Classes="spaced" ColumnDefinitions="*, *">
+            <TextBlock>
+                <Run>Got</Run>
+                <Run Text="{Binding EntriesCount}"/>
+                <Run>Entries</Run>
+            </TextBlock>
+            <Button Command="{Binding NavigateNextCmd}" Grid.Column="1" HorizontalAlignment="Right">Następny...</Button>
         </Grid>
     </Grid>
         

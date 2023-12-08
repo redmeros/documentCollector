@@ -30,11 +30,18 @@ public class MainWindowViewModel : ViewModelBase
         {
             await Task.Delay(100);
         }
+
+        var region = _manager.Regions[RegionNames.MainRegion];
+        region.NavigationService.NavigationFailed += NavigationServiceOnNavigationFailed;
         
         _manager.RequestNavigate(RegionNames.MainRegion, Step0ViewModel.NavKey, result =>
         {
             Console.WriteLine("First navigation request result: " + result.Result);
         });
     }
-    
+
+    private void NavigationServiceOnNavigationFailed(object? sender, RegionNavigationFailedEventArgs e)
+    {
+        Console.WriteLine($"Navigation failed: {e.Error}");
+    }
 }

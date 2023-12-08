@@ -9,6 +9,7 @@ public class ExcelListDocumentReaderConfig : IDocumentListReaderConfig
     public string RegexCheck { get; set; } = @"^(\d{3})-(\S+)-(\S+)-(\S+)-(\S+)-(\d+)";
     public string StartColumn { get; set; } = "I";
 
+    public string IssueDateColumn { get; set; } = "AF";
     public string TitleColumn { get; set; } = "P"; 
     public string SheetName { get; set; } = "SPIS DOKUMENTACJI";
     public static ExcelListDocumentReaderConfig Default => new ExcelListDocumentReaderConfig();

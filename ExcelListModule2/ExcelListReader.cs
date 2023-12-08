@@ -34,11 +34,12 @@ public class ExcelListDocumentReader : IDocumentListReader
             
             var docs = ReadFile(files[i], token);
             
-            var percent =  (i + 1) / maxFiles;
+            var percent =  (i + 1f) / maxFiles;
             var msg = new ReadProgressMessage
             {
-                Message = $"Processing... {i + 1} of {maxFiles} which is ({percent * 100}%)",
-                PercentageDone = percent, JobDone = false
+                Message = $"Processing... {i + 1} of {maxFiles} which is ({percent * 100:F}%)",
+                PercentageDone = percent, 
+                JobDone = false
             };
             progress.Report(msg);
             allDocs.AddRange(docs);
@@ -62,12 +63,10 @@ public class ExcelListDocumentReader : IDocumentListReader
         var sheet = wb.GetSheet(_config.SheetName);
         var lastRow = sheet.LastRowNum;
         
-        var cellRef = new CellReference(_config.StartColumn + "1");
+        var docNoColIndex = _config.StartColumn.GetColumnIndex();
+        var docTitleColIndex = _config.TitleColumn.GetColumnIndex();
+        var docIssueDateIndex = _config.IssueDateColumn.GetColumnIndex();
         
-        var docNoColIndex = cellRef.Col;
-        var cellRefTitle = new CellReference(_config.TitleColumn + "1");
-        var docTitleColIndex = cellRefTitle.Col;
-
         var source = Path.GetFileNameWithoutExtension(path);
 
         var result = new List<DocumentEntry>();
@@ -91,11 +90,15 @@ public class ExcelListDocumentReader : IDocumentListReader
             {
                 continue;
             }
+
+            Console.WriteLine(docNoValue);
+            
             var docEntry = new DocumentEntry()
             {
                 DocNo = docNoValue,
                 Source = source,
-                Title = SafeGetStringValue(row, docTitleColIndex)
+                Title = SafeGetStringValue(row, docTitleColIndex),
+                IssueDate = row?.GetCell(docIssueDateIndex).DateCellValue ?? DateTime.MinValue
             };
             result.Add(docEntry);
         }

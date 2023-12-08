@@ -48,8 +48,6 @@ public class CommonDialogsService : ICommonDialogsService
         {
             _dialogService.ShowDialog(_mainWindow, DialogNames.ErrorDialog, p, _ =>
             {
-                var visualDescendants = TopLevel.GetTopLevel(_mainWindow).GetVisualDescendants();
-                var children = TopLevel.GetTopLevel(_mainWindow).GetVisualChildren();
                 tcs.SetResult();
             });
         });

@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Avalonia.Rendering;
+using Avalonia.Threading;
 using DocumentCollector.Infrastructure;
 using DocumentCollector.Infrastructure.Models;
 using DocumentCollector.Infrastructure.Services;
+using DocumentCollector.ViewModels;
 using Prism.Ioc;
+using Prism.Regions;
 
 namespace DocumentCollector.Services;
 
@@ -13,11 +17,13 @@ namespace DocumentCollector.Services;
 public class Context : IContext
 {
     private readonly IContainerProvider _container;
+    private readonly IRegionManager _regionManager;
     private readonly ICommonDialogsService _dialogs;
     public IDocumentListReaderDescriptor? SelectedListReaderDescriptor { get; set; }
     public IDocumentListReaderConfig? DocumentListReaderConfig { get; set; }
+    public ICollection<DocumentEntry> DocumentEntries { get; set; }
 
-    public List<DocumentEntry> Entries = new();
+    public ICollection<DocumentEntry> SelectedDocumentEntries { get; set; } = new List<DocumentEntry>();
     public void ReadDocumentLists()
     {
         if (SelectedListReaderDescriptor is null)
@@ -37,8 +43,15 @@ public class Context : IContext
                 }
                 
                 var result = await reader.Read(progress, token);
-                Entries = result.ToList();
-                Console.WriteLine($"Got overall {Entries.Count} entries");
+                DocumentEntries = result.ToList();
+                Console.WriteLine($"Got overall {DocumentEntries.Count} entries");
+                Dispatcher.UIThread.Post(() =>
+                {
+                    _regionManager.RequestNavigate(RegionNames.MainRegion, Step1ViewModel.NavKey, navigationResult =>
+                    {
+                        Console.WriteLine(navigationResult);
+                    });
+                });
             }
             catch (Exception ex)
             {
@@ -52,10 +65,14 @@ public class Context : IContext
             }
         });
     }
-    public Context(IContainerProvider container, ICommonDialogsService dialogs)
+    public Context(
+        IContainerProvider container,
+        IRegionManager regionManager,
+        ICommonDialogsService dialogs)
     {
         Console.WriteLine("Creating context?");
         _container = container;
+        _regionManager = regionManager;
         _dialogs = dialogs;
     }
 }
