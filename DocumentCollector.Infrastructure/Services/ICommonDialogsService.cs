@@ -1,9 +1,7 @@
-﻿using System;
-using Prism.Services.Dialogs;
-
-namespace DocumentCollector.Services;
+﻿namespace DocumentCollector.Infrastructure.Services;
 
 public interface ICommonDialogsService
 {
-    void ShowError(Exception ex, Action<IDialogResult>? callback = null);
+    Task ShowError(Exception ex);
+    (IProgress<T>, CancellationToken) ShowProgress<T>(string title);
 }

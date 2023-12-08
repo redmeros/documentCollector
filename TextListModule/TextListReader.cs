@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using DocumentCollector.Infrastructure;
 using DocumentCollector.Infrastructure.Models;
 
@@ -8,7 +9,12 @@ namespace TextListModule;
 
 public class TextListReader : IDocumentListReader
 {
-    public IEnumerable<DocumentEntry> Read(Stream stream, IDocumentListReaderConfig? config)
+    public Task<IEnumerable<DocumentEntry>> Read(IProgress<ReadProgressMessage> progress, CancellationToken token = default!)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Configure(IDocumentListReaderConfig config)
     {
         throw new NotImplementedException();
     }

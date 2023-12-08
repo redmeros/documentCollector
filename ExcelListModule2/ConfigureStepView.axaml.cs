@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace ExcelListModule2;
 
-public partial class ConfigureStep : UserControl
+public partial class ConfigureStepView : UserControl
 {
-    public ConfigureStep()
+    public ConfigureStepView()
     {
         InitializeComponent();
     }

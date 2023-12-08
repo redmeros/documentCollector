@@ -1,12 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentCollector", "DocumentCollector\DocumentCollector.csproj", "{997E8981-021B-4AC1-9BAB-06871234CE77}"
+	ProjectSection(ProjectDependencies) = postProject
+		{985E8BE9-6AD1-4D14-980D-FBCC9BE05A29} = {985E8BE9-6AD1-4D14-980D-FBCC9BE05A29}
+		{D3642A35-A51B-41B9-8128-C101BFE78595} = {D3642A35-A51B-41B9-8128-C101BFE78595}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentCollector.Kernel", "DocumentCollector.Kernel\DocumentCollector.Kernel.csproj", "{62C2A2C5-7DCF-4E19-965A-ED19695C6366}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentCollector.Infrastructure", "DocumentCollector.Infrastructure\DocumentCollector.Infrastructure.csproj", "{FCB7A6EA-580D-482D-9CE5-5E818D742AF6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentCollector.Kernel.Tests", "DocumentCollector.Kernel.Tests\DocumentCollector.Kernel.Tests.csproj", "{99CC1AFA-7BFE-4521-8825-7BB4A5A7188C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelListModule2", "ExcelListModule2\ExcelListModule2.csproj", "{985E8BE9-6AD1-4D14-980D-FBCC9BE05A29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextListModule", "TextListModule\TextListModule.csproj", "{D3642A35-A51B-41B9-8128-C101BFE78595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +38,13 @@ Global
 		{99CC1AFA-7BFE-4521-8825-7BB4A5A7188C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99CC1AFA-7BFE-4521-8825-7BB4A5A7188C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99CC1AFA-7BFE-4521-8825-7BB4A5A7188C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{985E8BE9-6AD1-4D14-980D-FBCC9BE05A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{985E8BE9-6AD1-4D14-980D-FBCC9BE05A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{985E8BE9-6AD1-4D14-980D-FBCC9BE05A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{985E8BE9-6AD1-4D14-980D-FBCC9BE05A29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3642A35-A51B-41B9-8128-C101BFE78595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3642A35-A51B-41B9-8128-C101BFE78595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3642A35-A51B-41B9-8128-C101BFE78595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3642A35-A51B-41B9-8128-C101BFE78595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

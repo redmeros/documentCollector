@@ -2,12 +2,10 @@
 
 namespace DocumentCollector.Infrastructure;
 
-public interface IDocumentListReaderConfig
-{
-}
+
 
 public interface IDocumentListReader
 {
-    public IEnumerable<DocumentEntry> Read(Stream stream, IDocumentListReaderConfig? config);
-    
+    public Task<IEnumerable<DocumentEntry>> Read(IProgress<ReadProgressMessage> progress, CancellationToken token = default!);
+    public void Configure(IDocumentListReaderConfig config);
 }
