@@ -6,15 +6,23 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="DocumentCollector.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        
+        Width="700"
+        Height="900"
+        
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:inf="clr-namespace:DocumentCollector.Infrastructure;assembly=DocumentCollector.Infrastructure"
+        
         Icon="/Assets/avalonia-logo.ico"
         Title="DocumentCollector">
 
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
     
+    <Grid RowDefinitions="Auto, * , Auto">
+        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static inf:RegionNames.MainRegion}"/>
+        <ContentControl Grid.Row="2" prism:RegionManager.RegionName="{x:Static inf:RegionNames.FooterRegion}"/>
+    </Grid>
 
 </Window>

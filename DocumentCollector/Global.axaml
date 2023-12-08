@@ -1,0 +1,33 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="TextBlock.h1">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontFamily" Value="Cascandia"/>
+    </Style>
+    
+    <Style Selector="TextBlock.muted">
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="FontStretch" Value="Condensed"/>
+        <Setter Property="FontStyle" Value="Italic"/>
+    </Style>
+    
+    <!-- BorderThickness="2" CornerRadius="4" Margin="10" Padding="20" -->
+    
+    <Style Selector="Border.border">
+        <Setter Property="BorderBrush" Value="Gray"></Setter>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="Padding" Value="20"></Setter>
+    </Style>
+    
+    <Style Selector=":is(Control).spaced">
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+</Styles>

@@ -4,5 +4,6 @@
              RequestedThemeVariant="Light">
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="Global.axaml"></StyleInclude>
     </Application.Styles>
 </Application>

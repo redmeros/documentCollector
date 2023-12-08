@@ -1,0 +1,43 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+             xmlns:vm="using:DocumentCollector.ViewModels"
+             x:DataType="vm:Step1ViewModel"
+             
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DocumentCollector.Views.Step1View">
+        
+    <Grid RowDefinitions="*, Auto">
+        <Border BorderBrush="Gray" Classes="border spaced">
+            <ScrollViewer>
+                <Grid RowDefinitions="Auto, Auto, *">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Classes="h1" Text="Wybierz listy rysunków"/>
+                        <TextBlock Classes="muted" Text="Standardowe listy rysunków DCS w formacie xlsx, przykładowe listy np dla projektu wykonawczego mszczonowa"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <StackPanel.Styles>
+                        <Style Selector=":is(Button)">
+                            <Setter Property="Margin" Value="3 3 0 3"></Setter>
+                        </Style>
+                    </StackPanel.Styles>
+                    <Button Command="{Binding AddFileToListPath}">Dodaj listę</Button>
+                    <Button Command="{Binding AddFolderToListPath}">Dodaj katalog list</Button>
+                    <Button Command="{Binding DeletePathCmd}">Usuń zaznaczone</Button>
+                </StackPanel>
+                <ListBox
+                    SelectionMode="Multiple"
+                    SelectedItems="{Binding SelectedPaths}"
+                    Grid.Row="2" ItemsSource="{Binding ListPaths}"></ListBox>
+                </Grid>
+            </ScrollViewer>
+        </Border>
+        
+        <Grid Grid.Row="1" Classes="spaced">
+            <Button Command="{Binding NextCmd}" HorizontalAlignment="Right">Następny...</Button>
+        </Grid>
+    </Grid>
+        
+</UserControl>

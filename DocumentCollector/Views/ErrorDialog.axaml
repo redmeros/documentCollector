@@ -1,0 +1,28 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="clr-namespace:DocumentCollector.ViewModels"
+             x:DataType="vm:ErrorDialogViewModel"
+             x:Class="DocumentCollector.Views.ErrorDialog">
+    
+    <Grid RowDefinitions="Auto, *, Auto">
+        <TextBlock Margin="20" Classes="h1">
+            Błąd podczas operacji
+        </TextBlock>
+        
+            <ItemsControl Margin="20" Grid.Row="1" ItemsSource="{Binding Messages}">
+                <ItemsControl.DataTemplates>
+                    <DataTemplate DataType="x:String">
+                        <TextBox Text="{Binding}"></TextBox>
+                    </DataTemplate>
+                </ItemsControl.DataTemplates>
+            </ItemsControl>
+        
+        <Button Grid.Row="2" MaxWidth="200" Margin="20" HorizontalAlignment="Center" Command="{Binding CloseCmd}">
+            Zamknij
+        </Button>
+        
+    </Grid>
+</UserControl>

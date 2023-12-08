@@ -1,0 +1,23 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DocumentCollector.Views.ProgressDialog"
+             xmlns:vm="clr-namespace:DocumentCollector.ViewModels"
+             x:DataType="vm:ProgressDialogViewModel"
+             
+             Height="200"
+             Width="600"
+             
+             >
+    
+    <Grid Margin="20"
+          RowDefinitions="Auto, *, Auto"
+          >
+        <TextBlock HorizontalAlignment="Center" Text="{Binding Message}"></TextBlock>
+        <ProgressBar Margin="0, 25" HorizontalAlignment="Stretch" MinHeight="15" MaxHeight="15" Maximum="1" Minimum="0" Grid.Row="1" Value="{Binding PercentageDone}"/>
+        <Button Grid.Row="2" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding CancelCmd}" Width="200">Anuluj</Button>
+    </Grid>
+    
+</UserControl>

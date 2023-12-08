@@ -1,5 +1,4 @@
 ﻿using Prism.Mvvm;
-using ReactiveUI;
 
 namespace DocumentCollector.ViewModels;
 

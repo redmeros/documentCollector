@@ -1,0 +1,33 @@
+﻿<UserControl
+    Name="Root"
+    xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             
+             xmlns:vm="clr-namespace:DocumentCollector.ViewModels"
+             xmlns:inf="clr-namespace:DocumentCollector.Infrastructure;assembly=DocumentCollector.Infrastructure"
+             
+             x:DataType="vm:Step0ViewModel"
+             x:Class="DocumentCollector.Views.Step0View">
+    <Border Classes="border spaced">
+        <Grid RowDefinitions="Auto, *">
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center" Classes="spaced h1" Text="Wybierz typ podania plików do kolekcji"/>
+            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+                <ItemsControl ItemsSource="{Binding Descriptors}">
+                    <ItemsControl.DataTemplates>
+                        <DataTemplate DataType="{x:Type inf:IDocumentListReaderDescriptor}">
+                            <Button Classes="spaced" MinWidth="300" HorizontalContentAlignment="Center"
+                                    CommandParameter="{Binding}"
+                                    Command="{ReflectionBinding #Root.DataContext.SelectDescriptorCmd}">
+                                
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding Name}"></TextBlock>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.DataTemplates>
+                </ItemsControl>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
