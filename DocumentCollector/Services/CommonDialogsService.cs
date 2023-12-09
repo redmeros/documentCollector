@@ -1,27 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Avalonia.Controls;
-using Avalonia.LogicalTree;
 using Avalonia.Threading;
-using Avalonia.VisualTree;
 using DocumentCollector.Infrastructure.Models;
 using DocumentCollector.Infrastructure.Services;
 using DocumentCollector.Utils;
 using DocumentCollector.Views;
-using MathNet.Numerics.Distributions;
 using Prism.Services.Dialogs;
 
 namespace DocumentCollector.Services;
-
-public class DialogProgressParameters<T> : DialogParameters
-{
-    public Progress<T>? Progress { get; set; }
-
-    public CancellationTokenSource CancellationTokenSource { get; set; } = new();
-}
 
 public class CommonDialogsService : ICommonDialogsService
 {
@@ -56,8 +44,8 @@ public class CommonDialogsService : ICommonDialogsService
 
     public (IProgress<T>, CancellationToken) ShowProgress<T>(string title)
     {
-        var progress = new Progress<ReadProgressMessage>();
-        var p = new DialogProgressParameters<ReadProgressMessage>()
+        var progress = new Progress<ProgressMessage>();
+        var p = new DialogProgressParameters<ProgressMessage>()
         {
             Progress = progress
         };
@@ -72,5 +60,19 @@ public class CommonDialogsService : ICommonDialogsService
         }
 
         throw new CollectorException("cannot create progress");
+    }
+
+    public (IProgress<ProgressMessage>, CancellationToken) ShowInfiniteProgress(string message)
+    {
+        var progress = new Progress<ProgressMessage>();
+        var p = new DialogProgressParameters<ProgressMessage>()
+        {
+            Progress = progress
+        };
+        Dispatcher.UIThread.Post(() =>
+        {
+            _dialogService.ShowDialog(_mainWindow, DialogNames.InfiniteProgressDialog, p);
+        });
+        return (progress, p.CancellationTokenSource.Token);
     }
 }

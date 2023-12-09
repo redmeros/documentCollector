@@ -15,9 +15,9 @@ public class ProgressDialogViewModel : BindableBase, IDialogAware
 {
     private CancellationTokenSource? _cancelSource;
 
-    private Progress<ReadProgressMessage>? _progress;
+    private Progress<ProgressMessage>? _progress;
 
-    public Progress<ReadProgressMessage>? Progress
+    public Progress<ProgressMessage>? Progress
     {
         get => _progress;
         set => SetProperty(ref _progress, value);
@@ -53,9 +53,9 @@ public class ProgressDialogViewModel : BindableBase, IDialogAware
 
     public void OnDialogOpened(IDialogParameters parameters)
     {
-        if (parameters is not DialogProgressParameters<ReadProgressMessage> p)
+        if (parameters is not DialogProgressParameters<ProgressMessage> p)
         {
-            throw new CollectorException($"Wrong parameters type, expected: {typeof(DialogProgressParameters<ReadProgressMessage>)}");
+            throw new CollectorException($"Wrong parameters type, expected: {typeof(DialogProgressParameters<ProgressMessage>)}");
         }
 
         _cancelSource = p.CancellationTokenSource;
@@ -71,7 +71,7 @@ public class ProgressDialogViewModel : BindableBase, IDialogAware
         }
     }
 
-    private void ProgressOnProgressChanged(object? sender, ReadProgressMessage e)
+    private void ProgressOnProgressChanged(object? sender, ProgressMessage e)
     {
         Dispatcher.UIThread.Invoke(() =>
         {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="DocumentCollector/App.axaml" value="DocumentCollector/DocumentCollector.csproj" />
+        <entry key="DocumentCollector/FileIndexer/FileIndexerView.axaml" value="DocumentCollector/DocumentCollector.csproj" />
+        <entry key="DocumentCollector/FileSystemIndexer/FileSystemIndexerConfigView.axaml" value="DocumentCollector/DocumentCollector.csproj" />
+        <entry key="DocumentCollector/Views/InfiniteProgressDialog.axaml" value="DocumentCollector/DocumentCollector.csproj" />
+        <entry key="DocumentCollector/Views/ProgressDialog.axaml" value="DocumentCollector/DocumentCollector.csproj" />
+        <entry key="DocumentCollector/Views/Step0View.axaml" value="DocumentCollector/DocumentCollector.csproj" />
+        <entry key="DocumentCollector/Views/Step1View.axaml" value="DocumentCollector/DocumentCollector.csproj" />
+        <entry key="DocumentCollector/Views/Step2View.axaml" value="DocumentCollector/DocumentCollector.csproj" />
+        <entry key="DocumentCollector/Views/Step3View.axaml" value="DocumentCollector/DocumentCollector.csproj" />
+        <entry key="DocumentCollector/Views/Step4View.axaml" value="DocumentCollector/DocumentCollector.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

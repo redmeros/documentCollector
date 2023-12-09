@@ -1,6 +1,6 @@
 ﻿namespace DocumentCollector.Infrastructure.Models;
 
-public class ReadProgressMessage
+public class ProgressMessage
 {
     public string Message { get; init; } = string.Empty;
     public double PercentageDone { get; init; } 

@@ -4,8 +4,10 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Platform.Storage;
+using DocumentCollector.FileSystemIndexer;
 using DocumentCollector.Infrastructure;
 using DocumentCollector.Infrastructure.Services;
+using DocumentCollector.Kernel;
 using DocumentCollector.Services;
 using DocumentCollector.Utils;
 using DocumentCollector.ViewModels;
@@ -44,16 +46,23 @@ public class App : PrismApplication
             }
             return topLevel.StorageProvider;
         });
+
+        containerRegistry.Register<IDocumentMatcher, FilePathDocumentMatcher>(MatcherKeys.FilePathDocumentMatcher);
         
-        containerRegistry.RegisterSingleton<IContext, Context>();
+        containerRegistry.RegisterSingleton<IContext, UiContext>();
         
         containerRegistry.RegisterDialog<ErrorDialog, ErrorDialogViewModel>();
-        containerRegistry.RegisterDialog<ProgressDialog, ProgressDialogViewModel>();
-        containerRegistry.RegisterSingleton<ICommonDialogsService, CommonDialogsService>();
+        containerRegistry.RegisterDialog<ProgressDialog, ProgressDialogViewModel>(DialogNames.ProgressDialog);
+        containerRegistry.RegisterDialog<InfiniteProgressDialog, ProgressDialogViewModel>(DialogNames.InfiniteProgressDialog);
         
+        containerRegistry.RegisterSingleton<ICommonDialogsService, CommonDialogsService>();
+
+        containerRegistry.AddFileSystemIndexer();
         containerRegistry.RegisterForNavigation<Step0View, Step0ViewModel>();
         containerRegistry.RegisterForNavigation<Step1View, Step1ViewModel>();
         containerRegistry.RegisterForNavigation<Step2View, Step2ViewModel>();
+        containerRegistry.RegisterForNavigation<Step3View, Step3ViewModel>(StepNames.Step3View);
+        containerRegistry.RegisterForNavigation<Step4View, Step4ViewModel>(StepNames.Step4View);
     }
 
     protected override IModuleCatalog CreateModuleCatalog()
@@ -63,17 +72,6 @@ public class App : PrismApplication
             ModulePath = @"./Modules" 
         };
     }
-
-    private static bool IsProduction()
-    {
-#if DEBUG
-        return false;
-#else
-        return true;
-#endif
-    }
-    
-    
     
     protected override AvaloniaObject CreateShell()
     {

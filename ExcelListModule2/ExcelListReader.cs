@@ -16,7 +16,7 @@ namespace ExcelListModule2;
 public class ExcelListDocumentReader : IDocumentListReader
 {
     private ExcelListDocumentReaderConfig _config = ExcelListDocumentReaderConfig.Default;
-    public async Task<IEnumerable<DocumentEntry>> Read(IProgress<ReadProgressMessage> progress, CancellationToken token = default!)
+    public async Task<IEnumerable<DocumentEntry>> Read(IProgress<ProgressMessage> progress, CancellationToken token = default!)
     {
         Console.WriteLine("waiting");
         await Task.Delay(10, token);
@@ -31,11 +31,12 @@ public class ExcelListDocumentReader : IDocumentListReader
             {
                 throw new OperationCanceledException("Cancelled by user");
             }
-            
+
+                   
             var docs = ReadFile(files[i], token);
             
             var percent =  (i + 1f) / maxFiles;
-            var msg = new ReadProgressMessage
+            var msg = new ProgressMessage
             {
                 Message = $"Processing... {i + 1} of {maxFiles} which is ({percent * 100:F}%)",
                 PercentageDone = percent, 
@@ -45,7 +46,7 @@ public class ExcelListDocumentReader : IDocumentListReader
             allDocs.AddRange(docs);
             Console.WriteLine($"File: {files[i]} read. Got {docs.Count} document entries"); 
         }
-        progress.Report(new ReadProgressMessage
+        progress.Report(new ProgressMessage
         {
             Message = "Job done",
             PercentageDone = 1f,
@@ -73,34 +74,42 @@ public class ExcelListDocumentReader : IDocumentListReader
         
         for (var i = 0; i < lastRow; i++)
         {
-            var row = sheet.GetRow(i);
+            try
+            {
+                var row = sheet.GetRow(i);
 
-            var cell = row?.GetCell(docNoColIndex, MissingCellPolicy.RETURN_BLANK_AS_NULL);
-            var docNoValue = cell?.StringCellValue;
-            if (docNoValue is null)
-            {
-                continue;
-            }
-            if (!IsDocumentRow(docNoValue))
-            {
-                continue;
-            }
-            
-            if (IsHiddenRow(row))
-            {
-                continue;
-            }
+                var cell = row?.GetCell(docNoColIndex, MissingCellPolicy.RETURN_BLANK_AS_NULL);
+                var docNoValue = cell?.StringCellValue;
+                if (docNoValue is null)
+                {
+                    continue;
+                }
 
-            Console.WriteLine(docNoValue);
-            
-            var docEntry = new DocumentEntry()
+                if (!IsDocumentRow(docNoValue))
+                {
+                    continue;
+                }
+
+                if (IsHiddenRow(row))
+                {
+                    continue;
+                }
+
+                Console.WriteLine(docNoValue);
+
+                var docEntry = new DocumentEntry()
+                {
+                    DocNo = docNoValue,
+                    Source = source,
+                    Title = SafeGetStringValue(row, docTitleColIndex),
+                    IssueDate = row?.GetCell(docIssueDateIndex).DateCellValue ?? DateTime.MinValue
+                };
+                result.Add(docEntry);
+            }
+            catch (Exception ex)
             {
-                DocNo = docNoValue,
-                Source = source,
-                Title = SafeGetStringValue(row, docTitleColIndex),
-                IssueDate = row?.GetCell(docIssueDateIndex).DateCellValue ?? DateTime.MinValue
-            };
-            result.Add(docEntry);
+                throw new Exception($"Error during reading file: {path} on row no ({i})", ex);
+            }
         }
         return result;
     }

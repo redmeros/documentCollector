@@ -9,7 +9,7 @@ namespace TextListModule;
 
 public class TextListReader : IDocumentListReader
 {
-    public Task<IEnumerable<DocumentEntry>> Read(IProgress<ReadProgressMessage> progress, CancellationToken token = default!)
+    public Task<IEnumerable<DocumentEntry>> Read(IProgress<ProgressMessage> progress, CancellationToken token = default!)
     {
         throw new NotImplementedException();
     }

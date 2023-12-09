@@ -1,0 +1,41 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+
+             xmlns:vm="clr-namespace:DocumentCollector.ViewModels"
+             
+             x:DataType="vm:Step3ViewModel"
+             
+             x:Class="DocumentCollector.Views.Step3View">
+    <Grid RowDefinitions="Auto, Auto, *">
+        <Border Classes="border spaced">
+            <TextBlock TextWrapping="Wrap">
+                <Run>Indeksowanie zakończone, znaleziono </Run>
+                <Run FontWeight="Bold" Text="{Binding IndexedFilesCount}"/>
+                <Run> plików. Z tego </Run>
+                <Run FontWeight="Bold" Text="{Binding NonEditableCount}"/>
+                <Run> plików nieedytowalnych i </Run>
+                <Run FontWeight="Bold" Text="{Binding EditableCount}"/>
+                <Run> plików edytowalnych. Ilość dokumentów do dopasowania </Run>
+                <Run FontWeight="Bold" Text="{Binding DocumentsCount}"></Run>
+            </TextBlock>
+        </Border>
+        <Border Classes="border spaced" Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <ComboBox
+                    HorizontalAlignment="Stretch"
+                    Margin="5"
+                    DisplayMemberBinding="{Binding Display}"
+                    SelectedItem="{Binding SelectedDocumentMatcher}"
+                    ItemsSource="{Binding AvailableMatchers}"/>
+                <TextBlock Margin="5" TextWrapping="Wrap" Text="{Binding SelectedDocumentMatcher.Description, FallbackValue='Wybierz dopasowywacza aby zobaczyć opis'}"/>
+                
+                <Button
+                    CommandParameter="{Binding SelectedDocumentMatcher}"
+                    Command="{Binding MatchDocumentsCmd}" HorizontalAlignment="Center" Margin="5" MaxWidth="200" MinWidth="200" HorizontalContentAlignment="Center">Dopasuj</Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

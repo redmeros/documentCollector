@@ -1,0 +1,67 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:local="clr-namespace:DocumentCollector.FileSystemIndexer"
+             x:DataType="local:FileSystemIndexerConfigViewModel"
+             x:Class="DocumentCollector.FileSystemIndexer.FileSystemIndexerConfigView">
+    
+    <Grid RowDefinitions="Auto, *, Auto">
+        <Border Classes="border spaced">
+            <Grid RowDefinitions="Auto, Auto, *">
+                <TextBlock Grid.Row="0" Classes="h1" HorizontalAlignment="Center" TextAlignment="Center">
+                    Ustawienia indeksatora plików
+                </TextBlock>
+                <UniformGrid
+                    Grid.Row="1"
+                    Classes="spaced"
+                    Columns="2">
+                    
+                    <UniformGrid.Styles>
+                        <Style Selector="TextBlock.label">
+                            <Setter Property="TextAlignment" Value="Right"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="5, 5"/>
+                        </Style>
+                    </UniformGrid.Styles>
+                    
+                    <TextBlock TextWrapping="WrapWithOverflow" Classes="label" Text="Lista rozszerzeń edytowalnych (oddzielana średnikiem"/>
+                    <TextBox Margin="0, 5" Text="{Binding EditExtensions}"/>
+                    
+                    <TextBlock TextWrapping="Wrap" Classes="label" Text="Lista rozszerzeń nieedytowalnych (oddzielana średnikiem)"/>
+                    <TextBox Margin="0, 5" Text="{Binding NonEditExtensions}"/>
+                </UniformGrid>
+            </Grid>
+        </Border>
+        
+        <Border Grid.Row="1" Classes="border spaced">
+            <Grid RowDefinitions="Auto, Auto, *">
+                <TextBlock Grid.Row="0" Classes="h1" HorizontalAlignment="Center" TextAlignment="Center">
+                    Lista katalogów do przeszukania
+                </TextBlock>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5, 0" HorizontalAlignment="Center">
+                    <StackPanel.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Margin" Value="0 ,5, 5,5"></Setter>
+                        </Style>
+                    </StackPanel.Styles>
+                    
+                    <Button Command="{Binding AddFolderCmd}">Dodaj folder...</Button>
+                    <Button Command="{Binding DelSelectedCmd}">Usuń zaznaczone</Button>
+                </StackPanel>
+                
+                <ListBox Grid.Row="2"
+                         SelectionMode="Multiple"
+                         SelectedItems="{Binding SelectedDirectories}"
+                         ItemsSource="{Binding Directories}"/>
+                
+            </Grid>
+        </Border>
+        
+        <StackPanel Classes="spaced" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Command="{Binding GoNextCmd}">Dalej</Button>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>
