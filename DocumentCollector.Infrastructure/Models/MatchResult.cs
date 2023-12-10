@@ -10,4 +10,5 @@ public class MatchResult
     {
         Entry = entry;
     }
+    public bool HasError => EditablePath is null || NonEditablePath is null;
 }

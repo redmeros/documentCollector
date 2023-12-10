@@ -24,6 +24,11 @@ public class UiContext : IContext
     public ICollection<DocumentEntry> DocumentEntries { get; set; } = new List<DocumentEntry>();
     public ICollection<DocumentEntry> SelectedDocumentEntries { get; set; } = new List<DocumentEntry>();
     public ICollection<MatchResult>? MatchResults { get; set; }
+    public ISinkDescriptor? SelectedSinkDescriptor { get; set; }
+    public ISinkConfiguration? SinkConfiguration { get; set; }
+    public ICollection<MatchResult>? MatchesToSink { get; set; }
+    
+    public string? SinkReport { get; set; }
     
     public FileIndex? FileIndex { get; set; }
     public void MatchDocuments(IDocumentMatcher matcher)
@@ -62,11 +67,50 @@ public class UiContext : IContext
                 PercentageDone = -1,
                 JobDone = true
             });
-
+            Console.WriteLine("MatchDone");
             MatchResults = results;
+            Dispatcher.UIThread.Post(() =>
+            {
+                _regionManager.RequestNavigate(RegionNames.MainRegion, StepNames.Step4);
+            });
         });
     }
 
+    public void SinkDocuments(Action<string>? callback)
+    {
+        if (SelectedSinkDescriptor is null)
+        {
+            throw new CollectorException("Selected sink descriptor is null");
+        }
+
+        var (progress, token) = _dialogs.ShowProgress<ProgressMessage>("Rozpoczynam zrzucanie dokumentów");
+        Task.Run(() =>
+        {
+            var sink = _container.Resolve<ISink>(SelectedSinkDescriptor.Key);
+
+            if (SinkConfiguration is not null)
+            {
+                sink.Configure(SinkConfiguration);
+            }
+
+            ArgumentNullException.ThrowIfNull(MatchesToSink);
+            
+            SinkReport = sink.SinkElements(MatchesToSink, progress, token);
+            
+            progress.Report(new ProgressMessage()
+            {
+                Message = "Job done",
+                PercentageDone = -1,
+                JobDone = true
+            });
+            if (callback is not null)
+            {
+                callback(SinkReport);
+            }
+        });
+
+    }
+    
     public void ReadDocumentLists()
     {
         if (SelectedListReaderDescriptor is null)
@@ -90,7 +134,10 @@ public class UiContext : IContext
                 Console.WriteLine($"Got overall {DocumentEntries.Count} entries");
                 Dispatcher.UIThread.Post(() =>
                 {
-                    _regionManager.RequestNavigate(RegionNames.MainRegion, Step1ViewModel.NavKey);
+                    _regionManager.RequestNavigate(RegionNames.MainRegion, StepNames.Step1, result =>
+                    {
+                        Console.WriteLine("result");
+                    });
                 });
             }
             catch (Exception ex)
@@ -141,7 +188,7 @@ public class UiContext : IContext
                 
                 Dispatcher.UIThread.Post(() =>
                 {
-                    _regionManager.RequestNavigate(RegionNames.MainRegion, StepNames.Step3View);
+                    _regionManager.RequestNavigate(RegionNames.MainRegion, StepNames.Step3);
                 });
             }
             catch (Exception ex)

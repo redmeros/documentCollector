@@ -8,7 +8,7 @@
 
     <Style Selector="TextBlock.h1">
         <Setter Property="FontSize" Value="18"/>
-        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontFamily" Value="Cascandia"/>
     </Style>
     
@@ -21,10 +21,10 @@
     <!-- BorderThickness="2" CornerRadius="4" Margin="10" Padding="20" -->
     
     <Style Selector="Border.border">
-        <Setter Property="BorderBrush" Value="Gray"></Setter>
+        <Setter Property="BorderBrush" Value="Gray" />
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="CornerRadius" Value="4"/>
-        <Setter Property="Padding" Value="20"></Setter>
+        <Setter Property="Padding" Value="20" />
     </Style>
     
     <Style Selector=":is(Control).spaced">

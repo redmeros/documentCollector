@@ -22,7 +22,7 @@
                                     CommandParameter="{Binding}"
                                     Command="{ReflectionBinding #Root.DataContext.SelectDescriptorCmd}">
                                 
-                                <TextBlock HorizontalAlignment="Center" Text="{Binding Name}"></TextBlock>
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" />
                             </Button>
                         </DataTemplate>
                     </ItemsControl.DataTemplates>

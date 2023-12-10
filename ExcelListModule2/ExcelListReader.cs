@@ -94,8 +94,7 @@ public class ExcelListDocumentReader : IDocumentListReader
                 {
                     continue;
                 }
-
-                Console.WriteLine(docNoValue);
+                
 
                 var docEntry = new DocumentEntry()
                 {

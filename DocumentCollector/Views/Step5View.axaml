@@ -1,0 +1,40 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DocumentCollector.Views.Step5View"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:inf="clr-namespace:DocumentCollector.Infrastructure;assembly=DocumentCollector.Infrastructure"
+             xmlns:vm="clr-namespace:DocumentCollector.ViewModels"
+             x:DataType="vm:Step5ViewModel"
+
+             >
+    <Grid RowDefinitions="Auto, Auto, *, Auto">
+        <Button Grid.Row="0" VerticalAlignment="Top" Margin="5" HorizontalAlignment="Right" Command="{Binding NavigateBackCmd}">Wróć</Button>
+        <Border Grid.Row="0" Classes="border spaced">
+            <TextBlock>
+                <Run>Elementów wybranych do zrzucenia: </Run>
+                <Run FontWeight="Bold" Text="{Binding ItemsToSinkCount}"/>
+            </TextBlock>
+        </Border>
+        
+        <Border Grid.Row="1" Classes="border spaced">
+            <Grid Grid.RowDefinitions="Auto, Auto, Auto, Auto">
+                <ComboBox
+                    DisplayMemberBinding="{Binding Display}"
+                    SelectedItem="{Binding SelectedSinkDescriptor}"
+                    ItemsSource="{Binding AvailableSinkDescriptors}"/>
+                <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="{Binding SelectedSinkDescriptor.Description, FallbackValue='Wybierz kolekcjonera żeby zobaczyć opis'}"/>
+                
+                <ContentControl Grid.Row="2" prism:RegionManager.RegionName="{x:Static inf:RegionNames.SinkSettingsRegion}"/>
+                
+            </Grid>
+        </Border>
+        
+        <TextBox Classes="spaced" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding SinkReport}" />
+
+        <Button Command="{Binding SinkCmd}" Margin="15" HorizontalAlignment="Right" Grid.Row="3">Działaj</Button>
+        
+    </Grid>
+</UserControl>

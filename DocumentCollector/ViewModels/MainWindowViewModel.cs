@@ -34,7 +34,7 @@ public class MainWindowViewModel : ViewModelBase
         var region = _manager.Regions[RegionNames.MainRegion];
         region.NavigationService.NavigationFailed += NavigationServiceOnNavigationFailed;
         
-        _manager.RequestNavigate(RegionNames.MainRegion, Step0ViewModel.NavKey, result =>
+        _manager.RequestNavigate(RegionNames.MainRegion, StepNames.Step0, result =>
         {
             Console.WriteLine("First navigation request result: " + result.Result);
         });

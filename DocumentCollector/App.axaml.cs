@@ -9,6 +9,7 @@ using DocumentCollector.Infrastructure;
 using DocumentCollector.Infrastructure.Services;
 using DocumentCollector.Kernel;
 using DocumentCollector.Services;
+using DocumentCollector.SimpleSink;
 using DocumentCollector.Utils;
 using DocumentCollector.ViewModels;
 using DocumentCollector.Views;
@@ -47,7 +48,13 @@ public class App : PrismApplication
             return topLevel.StorageProvider;
         });
 
-        containerRegistry.Register<IDocumentMatcher, FilePathDocumentMatcher>(MatcherKeys.FilePathDocumentMatcher);
+        #region ServicesThatCanBeModules
+            containerRegistry.AddFileSystemIndexer();
+            containerRegistry.AddFileSystemSink();
+
+            containerRegistry.Register<IDocumentMatcher, FilePathDocumentMatcher>();
+            
+        #endregion
         
         containerRegistry.RegisterSingleton<IContext, UiContext>();
         
@@ -57,12 +64,12 @@ public class App : PrismApplication
         
         containerRegistry.RegisterSingleton<ICommonDialogsService, CommonDialogsService>();
 
-        containerRegistry.AddFileSystemIndexer();
-        containerRegistry.RegisterForNavigation<Step0View, Step0ViewModel>();
-        containerRegistry.RegisterForNavigation<Step1View, Step1ViewModel>();
-        containerRegistry.RegisterForNavigation<Step2View, Step2ViewModel>();
-        containerRegistry.RegisterForNavigation<Step3View, Step3ViewModel>(StepNames.Step3View);
-        containerRegistry.RegisterForNavigation<Step4View, Step4ViewModel>(StepNames.Step4View);
+        containerRegistry.RegisterForNavigation<Step0View, Step0ViewModel>(StepNames.Step0);
+        containerRegistry.RegisterForNavigation<Step1View, Step1ViewModel>(StepNames.Step1);
+        containerRegistry.RegisterForNavigation<Step2View, Step2ViewModel>(StepNames.Step2);
+        containerRegistry.RegisterForNavigation<Step3View, Step3ViewModel>(StepNames.Step3);
+        containerRegistry.RegisterForNavigation<Step4View, Step4ViewModel>(StepNames.Step4);
+        containerRegistry.RegisterForNavigation<Step5View, Step5ViewModel>(StepNames.Step5);
     }
 
     protected override IModuleCatalog CreateModuleCatalog()

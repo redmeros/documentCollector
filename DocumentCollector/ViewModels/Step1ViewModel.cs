@@ -3,17 +3,17 @@ using System.Linq;
 using DocumentCollector.Infrastructure;
 using DocumentCollector.Infrastructure.Models;
 using DocumentCollector.Models;
-using DocumentCollector.Views;
 using Prism.Commands;
+using Prism.Mvvm;
 using Prism.Regions;
 
 namespace DocumentCollector.ViewModels;
 
-public class Step1ViewModel : StepViewModelBase
+public class Step1ViewModel : BindableBase
 {
     private readonly IContext _ctx;
     private readonly IRegionManager _regionManager;
-    public const string NavKey = nameof(Step1View);
+    public const string NavKey = StepNames.Step1;
 
     private int _entriesCount;
 
@@ -66,7 +66,15 @@ public class Step1ViewModel : StepViewModelBase
         {
             _ctx.SelectedDocumentEntries.Add(entry);
         }
-        _regionManager.RequestNavigate(RegionNames.MainRegion, Step2ViewModel.NavKey);
+        _regionManager.RequestNavigate(RegionNames.MainRegion, StepNames.Step2);
+    }
+
+    private DelegateCommand? _navigateBackCmd;
+    public DelegateCommand NavigateBackCmd => _navigateBackCmd ??= new(ExecuteNavigateBackCmd);
+
+    void ExecuteNavigateBackCmd()
+    {
+        _regionManager.RequestNavigate(RegionNames.MainRegion, StepNames.Step0);
     }
     
     public Step1ViewModel(

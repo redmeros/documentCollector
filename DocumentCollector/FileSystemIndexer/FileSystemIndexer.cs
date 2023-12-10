@@ -43,7 +43,7 @@ public class FileSystemIndexer : IFileIndexer
                     }
                     else if (_config.EditableExtensions.Contains(extension, StringComparer.OrdinalIgnoreCase))
                     {
-                        idx.TryAddNonEditable(file);
+                        idx.TryAddEditable(file);
                     }
                 }
             }

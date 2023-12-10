@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using Avalonia.Platform.Storage;
 using DocumentCollector.Infrastructure;
 using Prism.Commands;
 using Prism.Mvvm;
-using Prism.Regions;
 
 namespace DocumentCollector.FileSystemIndexer;
 
 public class FileSystemIndexerConfigViewModel : BindableBase
 {
-    private readonly IRegionManager _regionManager;
     private readonly IContext _ctx;
     private readonly IStorageProvider _storageProvider;
     private FileSystemIndexerConfig _config = new();
@@ -87,7 +83,7 @@ public class FileSystemIndexerConfigViewModel : BindableBase
 
         foreach (var item in SelectedDirectories.ToList())
         {
-            SelectedDirectories.Remove(item);
+            Directories.Remove(item);
         }
     }
 
@@ -109,12 +105,11 @@ public class FileSystemIndexerConfigViewModel : BindableBase
     }
     
     public FileSystemIndexerConfigViewModel(
-        IRegionManager regionManager,
         IContext ctx,
         IStorageProvider storageProvider)
     {
-        _regionManager = regionManager;
         _ctx = ctx;
+        _ctx.IndexerConfig ??= _config;
         _storageProvider = storageProvider;
         _config.DocumentEntries = _config.DocumentEntries;
 

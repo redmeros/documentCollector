@@ -10,48 +10,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d11d9afb-0000-48fb-b596-9af67cc872d9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/avalonia.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/IFileIndexer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/IFileIndexerConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/IFileIndexerDescriptor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Models/FileIndex.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Models/MatchResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Services/IDocumentMatcher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Services/MatcherKeys.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector.Kernel/DocumentMatcher/IDocumentMatcher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector.Kernel/FilePathDocumentMatcher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerConfigView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerConfigView.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerConfigViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerDescriptor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/Installer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/Services/DialogProgressParameters.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/Utils/ObservableCollectionEx.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step3ViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step4ViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/Views/InfiniteProgressDialog.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/Views/InfiniteProgressDialog.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step3View.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step3View.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step4View.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step4View.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Services/ISink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/StepNames.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector/SimpleSink/FileSystemSink.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector/SimpleSink/FileSystemSinkConfigView.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector/SimpleSink/FileSystemSinkConfigView.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector/SimpleSink/FileSystemSinkConfigViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector/SimpleSink/FileSystemSinkInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector/Utils/BoolErrorToStringConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step5ViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step5View.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step5View.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DocumentCollector.Infrastructure/IContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/IContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocumentCollector.Infrastructure/IDocumentListReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/IDocumentListReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Models/ReadProgressMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Models/ProgressMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Services/ICommonDialogsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Services/ICommonDialogsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector.Infrastructure/IDocumentListReaderDescriptor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/IDocumentListReaderDescriptor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Models/MatchResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/Models/MatchResult.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector.Infrastructure/RegionNames.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector.Infrastructure/RegionNames.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DocumentCollector.Kernel/DocumentCollector.Kernel.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector.Kernel/DocumentCollector.Kernel.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector.Kernel/DocumentMatcher/IDocumentMatcher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/App.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DocumentCollector/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/App.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocumentCollector/Services/CommonDialogsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Services/CommonDialogsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocumentCollector/Services/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Services/UiContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerConfigView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerConfigView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerConfigView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerConfigView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerConfigViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexerConfigViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/Installer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/Installer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/Global.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Global.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DocumentCollector/Services/DialogNames.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Services/DialogNames.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocumentCollector/ViewModels/ProgressDialogViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/ViewModels/ProgressDialogViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/Services/UiContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Services/UiContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/ViewModels/MainWindowViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step0ViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step0ViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step1ViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step1ViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step2ViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step2ViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step3ViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step3ViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step4ViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/ViewModels/Step4ViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/ViewModels/StepViewModelBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/Views/ErrorDialog.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Views/ErrorDialog.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/Views/InfiniteProgressDialog.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Views/InfiniteProgressDialog.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/Views/ProgressDialog.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Views/ProgressDialog.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/Views/Step0View.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step0View.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/Views/Step1View.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step1View.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DocumentCollector/Views/Step2View.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step2View.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/Views/Step3View.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step3View.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DocumentCollector/Views/Step4View.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Views/Step4View.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExcelListModule2/ConfigureStepView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/ExcelListModule2/ConfigureStepView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ExcelListModule2/ExcelListReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ExcelListModule2/ExcelListReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TextListModule/TextListReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextListModule/TextListReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExcelListModule2/ExcelListReaderModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ExcelListModule2/ExcelListReaderModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExcelListModule2/ServiceDescriptor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ExcelListModule2/ServiceDescriptor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,9 +77,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c12c1ad8112d4d4982563c91d27de541ea000/97/ddb24b43/Border.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c12c1ad8112d4d4982563c91d27de541ea000/b4/6090f336/RangeBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb0252e7b4fc4480bde717b3cbb9b92c1f400/1e/d578add9/IRegionNavigationService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb0252e7b4fc4480bde717b3cbb9b92c1f400/2c/00dcef22/NavigationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb0252e7b4fc4480bde717b3cbb9b92c1f400/5e/406c3fb5/IDialogService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb0252e7b4fc4480bde717b3cbb9b92c1f400/7e/8470603f/RegionNavigationFailedEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb0252e7b4fc4480bde717b3cbb9b92c1f400/99/347e3fce/IContainerRegistryExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb0252e7b4fc4480bde717b3cbb9b92c1f400/a2/302575f4/NavigationResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/18abfdd0b9864657427adca371bd66c8528750e4fe5025bd19724aed1e1139/BindableBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57d468dfe9322bbee320ba3b7b5a1f6e2382dd47c977357cf36172bc63516ab/IContainerRegistryExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/889595c0c9f04f5199bbadadab8ed150b1d8a0/_41dba/IProgress.cs" root0="SKIP_HIGHLIGHTING" />
@@ -82,7 +90,6 @@
     <setting file="file://$PROJECT_DIR$/DocumentCollector/Models/DocumentEntryViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DocumentCollector/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DocumentCollector/Services/CommonDialogsService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DocumentCollector/Services/Context.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DocumentCollector/Services/ErrorDialogParameters.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DocumentCollector/ViewModels/ErrorDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DocumentCollector/ViewModels/ProgressDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
@@ -108,7 +115,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.DocumentCollector.executor": "Run",
+    ".NET Project.DocumentCollector.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -203,7 +210,10 @@
       <workItem from="1701956204163" duration="320000" />
       <workItem from="1701956653145" duration="41374000" />
       <workItem from="1702064646884" duration="3432000" />
-      <workItem from="1702109661387" duration="11350000" />
+      <workItem from="1702109661387" duration="12944000" />
+      <workItem from="1702143670566" duration="5081000" />
+      <workItem from="1702200483588" duration="7850000" />
+      <workItem from="1702209698538" duration="3489000" />
     </task>
     <servers />
   </component>
@@ -227,16 +237,21 @@
           <line>44</line>
           <properties documentPath="C:\Users\mredm\RiderProjects\DocumentCollector\DocumentCollector\ViewModels\MainWindowViewModel.cs" initialLine="44" containingFunctionPresentation="Method 'NavigationServiceOnNavigationFailed'">
             <startOffsets>
-              <option value="1285" />
+              <option value="1279" />
             </startOffsets>
             <endOffsets>
-              <option value="1336" />
+              <option value="1330" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Frame#DocumentCollector.Services.UiContext+&lt;&gt;c.&lt;ReadDocumentLists&gt;b__45_2" memberName="result" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

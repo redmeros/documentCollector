@@ -1,0 +1,24 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             
+             xmlns:local="clr-namespace:DocumentCollector.SimpleSink"
+             x:DataType="local:FileSystemSinkConfigViewModel"
+             
+             x:Class="DocumentCollector.SimpleSink.FileSystemSinkConfigView">
+    
+    <Grid RowDefinitions="Auto, Auto, Auto, *" ColumnDefinitions="*,*">
+        <TextBlock>Folder zrzutu</TextBlock>
+        <Grid Grid.Row="0" Grid.Column="1" ColumnDefinitions="*,auto">
+            <TextBox Text="{Binding SinkFolder}"/>
+            <Button 
+                HorizontalContentAlignment="Center" Margin="3, 0, 0, 0" Grid.Column="1" MinWidth="50">...</Button>
+        </Grid>
+        
+        <CheckBox IsChecked="{Binding GroupBySource}"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">Grupuj po źródle</CheckBox>
+        <CheckBox IsChecked="{Binding GroupByExtension}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">Grupuj po rozszerzeniach</CheckBox>
+    </Grid>
+    
+</UserControl>

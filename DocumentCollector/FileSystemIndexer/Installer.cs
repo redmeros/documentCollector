@@ -10,7 +10,7 @@ public static class FileSystemIndexerInstaller
         var descriptor = new FileSystemIndexerDescriptor();
         registry.RegisterInstance<IFileIndexerDescriptor>(descriptor, descriptor.Key);
         registry.Register<IFileIndexer, FileSystemIndexer>(descriptor.Key);
-        registry.RegisterForNavigation<FileSystemIndexerConfigView, FileSystemIndexerConfigViewModel>(descriptor.ConfigControlNavigationKey);
+        registry.RegisterForNavigation<FileSystemIndexerConfigView, FileSystemIndexerConfigViewModel>(descriptor.Key);
         return registry;
     }
 }

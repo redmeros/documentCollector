@@ -14,7 +14,7 @@
     <Grid Margin="20"
           RowDefinitions="Auto, *, Auto"
     >
-        <TextBlock HorizontalAlignment="Center" Text="{Binding Message}"></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Text="{Binding Message}" />
         <ProgressBar IsIndeterminate="True" Margin="0, 25" HorizontalAlignment="Stretch" MinHeight="15" MaxHeight="15" Grid.Row="1"/>
         <Button Grid.Row="2" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding CancelCmd}" Width="200">Anuluj</Button>
     </Grid>

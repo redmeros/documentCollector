@@ -10,7 +10,8 @@
              x:Class="DocumentCollector.Views.Step1View">
         
     <Grid RowDefinitions="*, Auto">
-        <Border BorderBrush="Gray" Classes="border spaced">
+        <Button VerticalAlignment="Top" Margin="5" HorizontalAlignment="Right" Command="{Binding NavigateBackCmd}">Wróć</Button>
+        <Border Grid.Row="0" BorderBrush="Gray" Classes="border spaced">
             <Grid RowDefinitions="*, auto">
                 <DataGrid 
                     VerticalAlignment="Stretch" 

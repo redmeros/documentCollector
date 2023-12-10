@@ -11,7 +11,7 @@ public class ExcelListReaderModule : IModule
         var descriptor = new ServiceDescriptor();
         containerRegistry.RegisterInstance<IDocumentListReaderDescriptor>(descriptor, descriptor.Key);
         containerRegistry.Register<IDocumentListReader, ExcelListDocumentReader>(descriptor.Key);
-        containerRegistry.RegisterForNavigation<ConfigureStepView, ConfigureStepViewModel>(descriptor.Step1NavigationKey);
+        containerRegistry.RegisterForNavigation<ConfigureStepView, ConfigureStepViewModel>(descriptor.Key);
     } 
 
     public void OnInitialized(IContainerProvider containerProvider)

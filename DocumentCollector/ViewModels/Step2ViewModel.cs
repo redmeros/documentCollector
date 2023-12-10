@@ -34,10 +34,18 @@ public class Step2ViewModel : BindableBase
     private DelegateCommand<IFileIndexerDescriptor>? _selectedDescriptorCmd;
     public DelegateCommand<IFileIndexerDescriptor> SelectDescriptorCmd => _selectedDescriptorCmd ??= new DelegateCommand<IFileIndexerDescriptor>(ExecuteSelectedDescriptorCmd);
 
+    private DelegateCommand? _navigateBack;
+    public DelegateCommand NavigateBack => _navigateBack ??= new(ExecuteNavigateBack);
+
+    void ExecuteNavigateBack()
+    {
+        _manager.RequestNavigate(RegionNames.MainRegion, StepNames.Step1);
+    }
+    
     private void ExecuteSelectedDescriptorCmd(IFileIndexerDescriptor parameter)
     {
         _ctx.SelectedIndexerDescriptor = parameter;
-        _manager.RequestNavigate(RegionNames.MainRegion, parameter.ConfigControlNavigationKey, result =>
+        _manager.RequestNavigate(RegionNames.MainRegion, parameter.Key, result =>
         {
             if (result.Result is false)
             {

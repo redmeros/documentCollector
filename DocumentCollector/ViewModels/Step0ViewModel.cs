@@ -9,18 +9,20 @@ using Prism.Regions;
 
 namespace DocumentCollector.ViewModels;
 
-public class Step0ViewModel : StepViewModelBase
+public class Step0ViewModel
 {
     private readonly IContext _ctx;
+    private readonly IRegionManager _regionManager;
     public const string NavKey = nameof(Step0View);
 
     public ObservableCollection<IDocumentListReaderDescriptor> Descriptors { get; } = new();
     public Step0ViewModel(
         IContext ctx,
-        IRegionManager manager,
-        IEnumerable<IDocumentListReaderDescriptor> descriptors) : base(manager, Step1ViewModel.NavKey, null)
+        IRegionManager regionManager,
+        IEnumerable<IDocumentListReaderDescriptor> descriptors)
     {
         _ctx = ctx;
+        _regionManager = regionManager;
         Descriptors.AddRange(descriptors);
     }
 
@@ -30,7 +32,7 @@ public class Step0ViewModel : StepViewModelBase
     private void ExecuteSelectDescriptorCmd(IDocumentListReaderDescriptor parameter)
     {
         _ctx.SelectedListReaderDescriptor = parameter;
-        RegionManager.RequestNavigate(RegionNames.MainRegion, parameter.Step1NavigationKey, result =>
+        _regionManager.RequestNavigate(RegionNames.MainRegion, parameter.Key, result =>
         {
             Console.WriteLine(result);
         });

@@ -1,2 +1,0 @@
-﻿namespace DocumentCollector.Kernel.DocumentMatcher;
-

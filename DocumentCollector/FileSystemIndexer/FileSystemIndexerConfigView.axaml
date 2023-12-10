@@ -43,7 +43,7 @@
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5, 0" HorizontalAlignment="Center">
                     <StackPanel.Styles>
                         <Style Selector="Button">
-                            <Setter Property="Margin" Value="0 ,5, 5,5"></Setter>
+                            <Setter Property="Margin" Value="0 ,5, 5,5" />
                         </Style>
                     </StackPanel.Styles>
                     

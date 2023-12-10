@@ -24,4 +24,13 @@ public interface IContext
         public void MatchDocuments(IDocumentMatcher matcher);
         public ICollection<MatchResult>? MatchResults { get; set; }
     #endregion
+
+    #region SINK
+        public ISinkDescriptor? SelectedSinkDescriptor { get; set; }
+        public ISinkConfiguration? SinkConfiguration { get; set; }
+        public ICollection<MatchResult>? MatchesToSink { get; set; }
+        public void SinkDocuments(Action<string>? callback);
+        public string? SinkReport { get; set; }
+        
+    #endregion
 }

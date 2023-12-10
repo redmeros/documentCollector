@@ -59,7 +59,6 @@ public class Step3ViewModel : BindableBase
         try
         {
             _ctx.MatchDocuments(matcher);
-            _regionManager.RequestNavigate(RegionNames.MainRegion, StepNames.Step4View);
         }
         catch (Exception ex)
         {
@@ -82,6 +81,14 @@ public class Step3ViewModel : BindableBase
         get => _availableMatchers;
         set => SetProperty(ref _availableMatchers, value);
     }
+
+    private DelegateCommand? _navigateBackCmd;
+    public DelegateCommand NavigateBackCmd => _navigateBackCmd ??= new(ExecuteNavigateBackCmd);
+
+    void ExecuteNavigateBackCmd()
+    {
+        _regionManager.RequestNavigate(RegionNames.MainRegion, StepNames.Step2);
+    }
     
     public Step3ViewModel(
         IRegionManager regionManager,
@@ -89,6 +96,7 @@ public class Step3ViewModel : BindableBase
         IEnumerable<IDocumentMatcher> matchers, 
         ICommonDialogsService dialogs)
     {
+        Console.WriteLine("Step3ViewModel created");
         _regionManager = regionManager;
         _ctx = ctx;
         _dialogs = dialogs;

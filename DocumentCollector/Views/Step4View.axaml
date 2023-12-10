@@ -3,11 +3,44 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             
-             xmlns:inf="clr-namespace:DocumentCollector.Infrastructure;assembly=DocumentCollector.Infrastructure"
+
+             xmlns:utils='clr-namespace:DocumentCollector.Utils'
              xmlns:vm="clr-namespace:DocumentCollector.ViewModels"
              x:DataType="vm:Step4ViewModel"
              
              x:Class="DocumentCollector.Views.Step4View">
-    Welcome to Avalonia!
+    
+    <Border Classes="border spaced">
+        <Grid RowDefinitions="Auto, Auto, *">
+            <Button Grid.Row="0" VerticalAlignment="Top" Margin="5" HorizontalAlignment="Right" Command="{Binding NavigateBackCmd}">Wróć</Button>
+            <TextBlock Grid.Row="0" TextWrapping="Wrap">Poniżej rezultat wyszukiwania. Sprawdź czy wszystko się zgadza. Jeżeli nie to wróć do poprzednich kroków i spróbuj pozmieniać ustawienia może się gdzieś pomyliłeś. A może listy są złe? Może ustawienia szukaczy?</TextBlock>
+            
+            <Grid Grid.Row="1" ColumnDefinitions="*,*">
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Button Command="{Binding SelectAllCmd}">Zaznacz wszystko</Button>
+                    <Button Command="{Binding UnselectAllCmd}">Odznacz wszystko</Button>
+                    <Button Command="{Binding InvertSelectionCmd}">Odwróć zaznaczenie</Button>
+                </StackPanel>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                    <Button Command="{Binding CopyToCmd}">Zrzuć zaznaczone do katalogu</Button>
+                </StackPanel>
+            </Grid>
+            
+            <!-- <ScrollViewer Grid.Row="1"> -->
+            <DataGrid Grid.Row="2" 
+                      CanUserReorderColumns="True"
+                      CanUserResizeColumns="True"
+                      CanUserSortColumns="True"
+                      ItemsSource="{Binding MatchResults}">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Header="Zaznacz?" Binding="{Binding IsChecked}"/>
+                    <DataGridTextColumn Header="Błąd" Binding="{Binding  Object.HasError, Converter={utils:BoolErrorToStringConverter}}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Numer" Binding="{Binding Object.Entry.DocNo}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Edycyjny" Binding="{Binding Object.EditablePath}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Pdf" Binding="{Binding  Object.NonEditablePath}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Border>
+    
 </UserControl>
