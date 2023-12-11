@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d11d9afb-0000-48fb-b596-9af67cc872d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/TextListModule/TextListModule.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TextListModule/TextListModule.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +171,8 @@
       <workItem from="1702200483588" duration="7850000" />
       <workItem from="1702209698538" duration="3865000" />
       <workItem from="1702279188805" duration="2026000" />
+      <workItem from="1702281258725" duration="450000" />
+      <workItem from="1702300731067" duration="841000" />
     </task>
     <servers />
   </component>
@@ -227,6 +229,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexer.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\Users\mredm\RiderProjects\DocumentCollector\DocumentCollector\FileSystemIndexer\FileSystemIndexer.cs" initialLine="17" containingFunctionPresentation="Method 'IndexDocuments'">
+            <startOffsets>
+              <option value="498" />
+            </startOffsets>
+            <endOffsets>
+              <option value="524" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DocumentCollector/FileSystemIndexer/FileSystemIndexer.cs</url>
+          <line>51</line>
+          <properties documentPath="C:\Users\mredm\RiderProjects\DocumentCollector\DocumentCollector\FileSystemIndexer\FileSystemIndexer.cs" initialLine="51" containingFunctionPresentation="Method 'IndexDocuments'">
+            <startOffsets>
+              <option value="1807" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1878" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
