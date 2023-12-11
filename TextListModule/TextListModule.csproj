@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../version.csproj"/>
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
@@ -6,10 +7,9 @@
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <OutputPath>..\bin\$(TargetFramework)\Modules</OutputPath>
+    <PropertyGroup>
+        <OutputPath>..\bin\$(TargetFramework)\$(Configuration)\Modules</OutputPath>
     </PropertyGroup>
-
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.0.2"/>

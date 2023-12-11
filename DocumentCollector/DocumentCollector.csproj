@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../version.csproj"/>
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
+        <ApplicationIcon>documentCollector.ico</ApplicationIcon>
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
@@ -9,8 +11,8 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <LangVersion>10</LangVersion>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <OutputPath>..\bin\$(TargetFramework)</OutputPath>
+    <PropertyGroup> 
+        <OutputPath>..\bin\$(TargetFramework)\$(Configuration)\</OutputPath>
     </PropertyGroup>
 
     <ItemGroup>
@@ -27,7 +29,6 @@
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.2" />
         <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.2" />
-        <PackageReference Include="Live.Avalonia" Version="1.4.1" />
         <PackageReference Include="NPOI" Version="2.6.0" />
         <PackageReference Include="Prism.Avalonia" Version="8.1.97.11000" />
         <PackageReference Include="Prism.DryIoc.Avalonia" Version="8.1.97.11000" />

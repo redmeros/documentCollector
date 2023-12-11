@@ -1,5 +1,7 @@
 using System;
+#if DEBUG
 using Avalonia;
+#endif
 using Avalonia.Controls;
 
 namespace DocumentCollector.Views;
@@ -10,7 +12,9 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         DataContextChanged += OnDataContextChanged;
+        #if DEBUG
         this.AttachDevTools();
+        #endif
     }
 
     private void OnDataContextChanged(object? sender, EventArgs e)

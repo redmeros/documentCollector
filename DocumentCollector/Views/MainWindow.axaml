@@ -13,7 +13,7 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:inf="clr-namespace:DocumentCollector.Infrastructure;assembly=DocumentCollector.Infrastructure"
         
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/documentCollector.ico"
         Title="DocumentCollector">
 
     <Design.DataContext>
