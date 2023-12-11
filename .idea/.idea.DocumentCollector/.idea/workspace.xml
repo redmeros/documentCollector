@@ -10,14 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d11d9afb-0000-48fb-b596-9af67cc872d9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DocumentCollector/Assets/documentCollector.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/version.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/avalonia.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DocumentCollector/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocumentCollector/DocumentCollector.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/DocumentCollector.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocumentCollector/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Views/MainWindow.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DocumentCollector/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DocumentCollector/Views/MainWindow.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExcelListModule2/ExcelListModule2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ExcelListModule2/ExcelListModule2.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TextListModule/TextListModule.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TextListModule/TextListModule.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,6 +53,9 @@
     <setting file="file://$PROJECT_DIR$/DocumentCollector/Views/MainWindow.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DocumentCollector/Views/ProgressDialog.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DocumentCollector/Views/Step1View.axaml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -175,7 +170,7 @@
       <workItem from="1702143670566" duration="5081000" />
       <workItem from="1702200483588" duration="7850000" />
       <workItem from="1702209698538" duration="3865000" />
-      <workItem from="1702279188805" duration="1597000" />
+      <workItem from="1702279188805" duration="2026000" />
     </task>
     <servers />
   </component>
